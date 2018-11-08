@@ -106,18 +106,28 @@ int main()
 
 
     //Gradient descent and print values
+    
+    cout<<"Initial theta : \n";
+    for(int i = 0; i < theta.size(); i++)
+        cout<<theta[i]<<" ";
+    cout<<'\n';
+    float alpha = 0.006;
+    int iter = 10000;
     vector<float> th;
-    th = GradDescent(X, y, theta, 0.006, 10000);
- 
+    th = GradDescent(X, y, theta, alpha, iter);
+    cout<<"Trained theta : \n";
+    for(int i = 0; i < th.size(); i++)
+        cout<<th[i]<<" ";
+    cout<<'\n';
     cout<<"\nPrediction vs y values\n";
-    float mse = 0;
+    float error_count = 0;
     for(int i = 0; i < X.size(); i++)
     {
-        mse += abs(classify(h(X[i], th)) - y[i]);
+        error_count += abs(classify(h(X[i], th)) - y[i]);
         cout<<classify(h(X[i], th))<<" "<<y[i]<<"\n";
     }
     //mse/=X.size();
-    cout<<"errors = "<<mse<<"\nAccuracy = "<<(1 - mse/X.size())*100<<"\n";
+    cout<<"errors = "<<error_count<<"\nAccuracy = "<<(1 - error_count/m)*100<<"\n";
 
     //Print y 
     // for(int i = 0; i <= y.size(); i++)
