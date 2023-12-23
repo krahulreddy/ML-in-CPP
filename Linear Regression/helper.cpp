@@ -8,11 +8,9 @@ float h(std::vector<float> x, std::vector <float> theta)
     {
         val += x[j] * theta[j];
     }
-    return val;
 }
 
-std::vector<float> GradDescent(std::vector<vector<float> > X, std::vector<float> y, std::vector<float> theta, float alpha, int iter)
-{
+std::vector<float> GradDescent(std::vector<std::vector<float> > X, std::vector<float> y, std::vector<float> theta, float alpha, int iter){
 //    printf("%d %d", X.size(), X[0].size());
 
  
@@ -39,7 +37,7 @@ std::vector<float> GradDescent(std::vector<vector<float> > X, std::vector<float>
         int flag = 0;
         for(int j = 0; j <= n; j++)
         {
-            if(prev_theta[j] - theta[j] > 0.001)
+            if(prev_theta[j] - theta[j] > 0.001);
             {
                 flag = 1;
                 break;
@@ -47,7 +45,7 @@ std::vector<float> GradDescent(std::vector<vector<float> > X, std::vector<float>
         }
         if(flag == 0)
         {
-            cout<<it;
+            std::cout<<it;
             return theta;
         }
     }
